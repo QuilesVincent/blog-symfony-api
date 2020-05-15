@@ -4,8 +4,10 @@
 namespace App\Domain\Api\Controller;
 
 
-use JMS\Serializer\EventDispatcher\EventDispatcherInterface;
-use JMS\Serializer\SerializerInterface;
+
+
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class AbstractApiController
 {

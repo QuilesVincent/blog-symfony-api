@@ -2,13 +2,15 @@
 
 namespace App\Application\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use JMS\Serializer\Annotation as Serializer;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Application\Repository\ArticleRepository")
  */
 class Article
@@ -17,42 +19,42 @@ class Article
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Serializer\Groups({"global","detail", "admin"})
+     * @Groups({"global","detail", "admin"})
      */
     private int $id;
 
     /**
      * @var string|null
      * @ORM\Column
-     * @Serializer\Groups({"global", "detail", "admin"})
+     * @Groups({"global", "detail", "admin"})
      */
     private ?string $title = null;
 
     /**
      * @var string|null
      * @ORM\Column
-     * @Serializer\Groups({"detail", "admin"})
+     * @Groups({"detail", "admin"})
      */
     private ?string $titlePicture = null;
 
     /**
      * @var string|null
      * @ORM\Column(type="text")
-     * @Serializer\Groups({"global", "detail", "admin"})
+     * @Groups({"global", "detail", "admin"})
      */
     private ?string $content = null;
 
     /**
      * @var string|null
      * @ORM\Column
-     * @Serializer\Groups({"detail", "admin"})
+     * @Groups({"detail", "admin"})
      */
     private ?string $category = null;
 
     /**
      * @var string|null
      * @ORM\Column(type="text")
-     * @Serializer\Groups({"detail", "admin"})
+     * @Groups({"detail", "admin"})
      */
     private ?string $introduction = null;
 
@@ -60,14 +62,14 @@ class Article
     /**
      * @var DateTimeImmutable
      * @ORM\Column(type="datetime_immutable")
-     * @Serializer\Groups({"global", "detail", "admin"})
+     * @Groups({"global", "detail", "admin"})
      */
     private DateTimeImmutable $publishedAt;
 
     /**
      * @var Collection
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="article")
-     * @Serializer\Groups({"admin"})
+     * @Groups({"admin"})
      */
     private Collection $comments;
 

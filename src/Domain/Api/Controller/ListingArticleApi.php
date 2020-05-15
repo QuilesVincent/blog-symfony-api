@@ -6,23 +6,31 @@ namespace App\Domain\Api\Controller;
 
 use App\Application\Entity\Article;
 use Doctrine\ORM\EntityManagerInterface;
-use JMS\Serializer\Annotation\PostSerialize;
-use JMS\Serializer\EventDispatcher\Events;
-use JMS\Serializer\SerializationContext;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class ListingArticleApi extends AbstractApiController
 {
 
-    public function __invoke(EntityManagerInterface $entityManager): Response
+    /**
+     * @param EntityManagerInterface $entityManager
+     * @param NormalizerInterface $normalizer
+     * @return Response
+     */
+    public function __invoke(EntityManagerInterface $entityManager, NormalizerInterface $normalizer): Response
     {
         $articles = $entityManager->getRepository(Article::class)->findAll();
+
         $data = $this->serializer->serialize(
             $articles,
             "json",
-            SerializationContext::create()->setGroups(["global"])
+            [
+                "circular_reference_handler" => function ($object) {
+                    return $object->getId();
+                },
+                "groups" => ["global"]
+            ]
         );
-
 
         $response = new Response($data);
         $response->headers->set("Content-type", "application/json");

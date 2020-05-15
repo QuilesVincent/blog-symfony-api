@@ -1,7 +1,13 @@
 api-articles:
   path: /api/article-{id}
   controller: App\Domain\Api\Controller\ReadArticleApi
+  methods: GET
 
 api-listing-articles:
-  path: /api/index
+  path: /api/indexapi
   controller: App\Domain\Api\Controller\ListingArticleApi
+  methods: GET
+
+api-create-article:
+  path: /api/create-article
+  controller: App\Domain\Api\Controller\CreateArticleApi
