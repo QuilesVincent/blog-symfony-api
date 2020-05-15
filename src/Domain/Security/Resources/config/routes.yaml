@@ -1,0 +1,3 @@
+security_logOut:
+  path: /logOut
+  controller: App\Domain\Security\Controller\Logout

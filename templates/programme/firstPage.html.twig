@@ -1,0 +1,8 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Bienvenido {{ app.user.getUsername()}} </h1>
+    <p>{{ app.user.getTypeCompte() }}</p>
+
+
+{% endblock %}

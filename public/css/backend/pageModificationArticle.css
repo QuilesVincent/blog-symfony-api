@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    margin: auto;
+    width: 80%;
+}
+
+.formArticle {
+    display : flex;
+    flex-direction: column;
+    height: 90%;
+    align-items: center;
+}
+
+.formArticle input[name="article[title]"], .formArticle input[name="article[titlePicture]"], .formArticle textarea[name="article[introduction]"], .formArticle textarea[name="article[introduction]"] ~ div, .formArticle textarea[name="article[content]"] {
+    width: 50%;
+}
+
+.formArticle input[name="article[title]"], .formArticle input[name="article[titlePicture]"], .formArticle textarea[name="article[introduction]"], .formArticle textarea[name="article[introduction]"] ~ div {
+    height: 50px;
+    background: #57b9e3;
+    font-size: 30px;
+}
+
+.formArticle textarea[name="article[content]"] {
+    height: 450px;
+    font-size: 25px;
+}
+
+.formArticle *::placeholder{
+    text-align: center;
+}
+
+.formArticle textarea[name="article[introduction]"] ~ div {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.contentSelect select {
+    height: 50%;
+}
+.formArticle .submitFormArticle {
+    height: 30px;
+    width: 15%;
+    font-size: 20px;
+}

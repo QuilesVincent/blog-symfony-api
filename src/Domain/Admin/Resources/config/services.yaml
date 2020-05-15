@@ -1,0 +1,9 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+  App\Domain\Admin\:
+    resource: '../../*'
+  App\Domain\Admin\Controller\:
+    resource: '../../Controller'
+    tags: ['controller.service_arguments']

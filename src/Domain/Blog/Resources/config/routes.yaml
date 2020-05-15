@@ -1,0 +1,7 @@
+index:
+  path: /
+  controller: App\Domain\Blog\Controller\Index
+
+article_read:
+  path: /articles-{id}
+  controller: App\Domain\Blog\Controller\ReadOneArticle

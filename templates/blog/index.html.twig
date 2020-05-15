@@ -1,0 +1,123 @@
+{% extends  "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/blog/blog.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/blog/headerGeneral.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/blog/footerGeneral.css') }}">
+{% endblock %}
+
+{% block body %}
+    <header class="header_general">
+        <div class='contain_header'>
+            <div class='logo_header'>
+                <div class="img imgHeader">
+                    <div class="contentImg"></div>
+                </div>
+            </div>
+            <div class='div_navigation'>
+                <nav class="nav">
+                    <ul>
+                        <li class="nav_li"><a href="">ACCUEIL</a></li>
+                        <li class="nav_li"><a href="{{ path("programme_presentation") }}">LE
+                                PROGRAMME</a></li>
+                        <li class="nav_li"><a href="#">COMMUNAUTÉ</a></li>
+                        <li class="nav_li"><a href="#">LE BLOG</a></li>
+                        <li class="nav_li"><a href="#">LE CONCEPT</a></li>
+                        <li class="nav_li"><a href="#">CONTACT</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section class="presentation">
+        <div class="text_presentation">
+            <div class="partie_text_presentation">
+                <div class="titre_text_presentation">
+                    <h2>67% des Personnes Sondées ne se considèrent pas en bonne santé. </br> Et si c'est votre cas
+                        ?</h2>
+                    <!-- mettre un trait jaune-->
+                </div>
+                <div class="paraph_text_presentation">
+                    <p>Faites le test tout de suite et découvrer votre niveau de santé actuel afin de découvrir des
+                        recommandations pour
+                        vivre une vie plus épanouissante dans un monde toujours plus négatif !</p>
+                </div>
+            </div>
+            <div class="button_lien_commencer_presentation">
+                <p><span>Cliquez ici pour commencer</span></p> <!-- mettre redirect en javascript-->
+            </div>
+        </div>
+    </section>
+    <section class="section_articles">
+        {% for article in articles %}
+            <div class="contener_article contener_article_{{ article.id }}">
+                <div class="img_article">
+                    <img src="{{ asset("image/reussiteMini.jpg") }}" alt="image article {{ article.titlePicture }}">
+                </div>
+                <div class="introduction_article">
+                    <h3>{{ article.title }}</h3>
+                </div>
+                <div class="div_surdiv_button">
+                    <div class="div_button">
+                        <a href="{{ path("article_read", {id: article.id}) }}">Lire</a>
+                    </div>
+                    <div><!--Mettre un petit logo carré style livre ou autre--></div>
+
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+    <footer>
+        <div class="contener_div_info_footer">
+            <div class="div_info_footer">
+                <div>
+                    <h3>Reussi tout maintenant</h3>
+                    <p>Reussi tout maintenant est le premier blog qui te fais vraiment réussir, et avancer. Finis les
+                        échecs
+                        et les déceptions, place à au succès.</p>
+                </div>
+                <div>
+                    <h3>Le Programme</h3>
+                    <a href="none">Le contenu</a>
+                    <a href="none">Comment s'inscrire ?</a>
+                    <a href="none">Le prix</a>
+                    <a href="none">Commencer directement</a>
+                </div>
+                <div>
+                    <h3>Communauté</h3>
+                    <a href="none">La chaîne Youtube</a>
+                    <a href="none">Le groupe Facebook</a>
+                    <a href="none">Linkedin</a>
+                    <a href="none">Les avis clients</a>
+                    <a href="none">Devenir ambassadeur</a>
+
+                </div>
+                <div>
+                    <h3>Mentions légales</h3>
+                    <a href="none">Conditions générales</a>
+                    <a href="none">Politique de confidentialité</a>
+                    <a href="none">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+        <div class="div_droit_footer">
+            <div class="droit">
+                <p>Tous droits réservés 2020 – 2024 © Réussi maintenant</p>
+            </div>
+            <div class="contener_social_reseau">
+                <div>
+                    <p>Suivez-nous sur les réseaux sociaux</p>
+                </div>
+                <div><img src="" alt="logo fb"></div>
+                <div><img src="" alt="logo insta"></div>
+                <div><img src="" alt="logo twitter"></div>
+                <div><img src="" alt="logo snap"></div>
+                <div><img src="" alt="logo linkedin"></div>
+            </div>
+        </div>
+
+    </footer>
+{% endblock %}
+
+

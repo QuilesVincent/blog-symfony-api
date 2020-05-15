@@ -1,0 +1,19 @@
+admin-connexion:
+  path: /admin-connexion
+  controller: App\Domain\Admin\Controller\ConnexionAdmin
+
+admin-gestion-articles:
+  path: /admin/gestion-articles
+  controller: App\Domain\Admin\Controller\GestionArticles
+
+admin-creation-article:
+  path: /admin/create-articles
+  controller: App\Domain\Admin\Controller\CreateArticles
+
+admin-modification-article-selected:
+  path: /admin/update-articles-{id}
+  controller: App\Domain\Admin\Controller\UpdateArticles
+
+admin-delete-article-selected:
+  path: /admin/delete-articles-{id}
+  controller: App\Domain\Admin\Controller\DeleteArticles

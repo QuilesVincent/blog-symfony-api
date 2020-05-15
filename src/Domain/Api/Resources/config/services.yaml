@@ -1,0 +1,9 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+  App\Domain\Api\:
+    resource: '../../*'
+  App\Domain\Api\Controller\:
+    resource: '../../Controller'
+    tags: ['controller.service_arguments']

@@ -1,0 +1,148 @@
+{% extends  "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/blog/blog.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/blog/headerGeneral.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/blog/footerGeneral.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/blog/article.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="header_lien_programme">
+        <strong>Découvrez le programme et révolutionner votre vie, tout ça gratuitement ! </strong>
+        <a href="http://localhost/code/blog/public/index.php/programme-index">En savoir plus</a>
+    </div>
+    <header class="header_general">
+        <div class='contain_header'>
+            <div class='logo_header'>
+                <div class="img imgHeader">
+                    <div class="contentImg"></div>
+                </div>
+            </div>
+            <div class='div_navigation'>
+                <nav class="nav">
+                    <ul>
+                        <li class="nav_li"><a href="{{ path("index") }}">ACCUEIL</a></li>
+                        <li class="nav_li"><a href="{{ path("programme_presentation") }}">LE
+                                PROGRAMME</a></li>
+                        <li class="nav_li"><a href="#">COMMUNAUTÉ</a></li>
+                        <li class="nav_li"><a href="#">LE BLOG</a></li>
+                        <li class="nav_li"><a href="#">LE CONCEPT</a></li>
+                        <li class="nav_li"><a href="#">CONTACT</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <?php include('headerGeneral.html.php'); ?>
+    <div class="principalPage">
+        <div class="contentFree"></div>
+        <section class="contentArticle">
+            {{ article.title |raw }}
+            {{ article.content|raw }}
+        </section>
+        <div class="contentPub"></div>
+    </div>
+
+    <div class="contentAboNews">
+        <div class="leftContent sousContentAboNews">
+            <div>
+                <h3>Pour Révolutionner votre vie maitenenant !</h3>
+                <p>Ce programme est fais pour vous. Rapide et efficace, enfin un service qui ne
+                    vous fait pas perdre votre temps et vous rapporte beaucoup.</p>
+                <a href="./programme-index">Rejoindre l'aventure</a>
+            </div>
+        </div>
+
+        <div class="rightContent sousContentAboNews">
+            <div>
+                <h3>Abonnez-vous à la newsletter</h3>
+                <p>Recevez régulièrement des informations exclusives directement dans votre
+                    boite email. On ne partagera votre adresse avec personne, promis</p>
+                <form action="" class="formNewsletter" method="POST">
+                    <input name="emailNewsletter" placeholder="votre e-mail" type="text">
+                    <input name="submitNewsletter" type="submit" value="Je m'abonne" class="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section class="commentaires">
+        {{ form_start(formComment, {"attr" : {"class" : "formComment"}}) }}
+        {% if formComment.author is defined %}
+            {{ form_row(formComment.author) }}
+        {% endif %}
+        {{ form_row(formComment.content) }}
+        <button type="submit">Envoyer</button>
+        {{ form_end(formComment) }}
+
+        <div class="divAllComments">
+        {% for comment in article.comments %}
+            <div class="divComment">
+                <div class="nameAuthorComment">
+                    <p>
+                        {{ comment.user is not null ? comment.user.username : comment.author }}
+                    </p>
+                </div>
+                <div class="contentComment">
+                    <p> : {{ comment.content }}</p>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </section>
+
+    <footer>
+        <div class="contener_div_info_footer">
+            <div class="div_info_footer">
+                <div>
+                    <h3>Reussi tout maintenant</h3>
+                    <p>Reussi tout maintenant est le premier blog qui te fais vraiment réussir, et avancer. Finis les
+                        échecs
+                        et les déceptions, place à au succès.</p>
+                </div>
+                <div>
+                    <h3>Le Programme</h3>
+                    <a href="none">Le contenu</a>
+                    <a href="none">Comment s'inscrire ?</a>
+                    <a href="none">Le prix</a>
+                    <a href="none">Commencer directement</a>
+                </div>
+                <div>
+                    <h3>Communauté</h3>
+                    <a href="none">La chaîne Youtube</a>
+                    <a href="none">Le groupe Facebook</a>
+                    <a href="none">Linkedin</a>
+                    <a href="none">Les avis clients</a>
+                    <a href="none">Devenir ambassadeur</a>
+
+                </div>
+                <div>
+                    <h3>Mentions légales</h3>
+                    <a href="none">Conditions générales</a>
+                    <a href="none">Politique de confidentialité</a>
+                    <a href="none">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+        <div class="div_droit_footer">
+            <div class="droit">
+                <p>Tous droits réservés 2020 – 2024 © Réussi maintenant</p>
+            </div>
+            <div class="contener_social_reseau">
+                <div>
+                    <p>Suivez-nous sur les réseaux sociaux</p>
+                </div>
+                <div><img src="" alt="logo fb"></div>
+                <div><img src="" alt="logo insta"></div>
+                <div><img src="" alt="logo twitter"></div>
+                <div><img src="" alt="logo snap"></div>
+                <div><img src="" alt="logo linkedin"></div>
+            </div>
+        </div>
+
+    </footer>
+
+{% endblock %}

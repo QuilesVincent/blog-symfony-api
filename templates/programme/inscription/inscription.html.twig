@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/programme/inscription.css") }}"
+{% endblock %}
+
+{% block body %}
+
+    <div class="divForm">
+
+        {{ form_start(form, {"attr": {"class": "form_co"}}) }}
+        <div class="firstNameContent divInput">
+            {{ form_widget(form.firstname) }}
+        </div>
+        <div class="lastnameContent divInput">
+            {{ form_widget(form.lastname) }}
+        </div>
+        <div class="usernameContent divInput">
+            {{ form_widget(form.username) }}
+        </div>
+        {{ form_widget(form.password) }}
+        <div class="secretQuestionContent divInput">
+            {{ form_row(form.secretQuestion) }}
+        </div>
+        <div class="secretQuestionAnswerContent divInput">
+            {{ form_widget(form.secretQuestionAnswer) }}
+        </div>
+        <div class="connexion">
+            <a href="{{ path("programme_connexion") }}">Retour</a>
+            <input type="submit" value="S'inscrire">
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+api-articles:
+  path: /api/article-{id}
+  controller: App\Domain\Api\Controller\ReadArticleApi
+
+api-listing-articles:
+  path: /api/index
+  controller: App\Domain\Api\Controller\ListingArticleApi

@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/backend/pageModificationArticle.css") }}"
+{% endblock %}
+
+
+{% block body %}
+
+    <section class="creation_input">
+        {{ form_start(form, {"attr" : {"class": "formArticle formModificationArticle"}}) }}
+        {{ form_widget(form.title) }}
+        {{ form_widget(form.titlePicture) }}
+        {{ form_widget(form.content) }}
+        {{ form_widget(form.introduction) }}
+        {{ form_row(form.category, {"attr" : {"class": "contentSelect"}}) }}
+        {{ form_row(form.file) }}
+        <input type="submit">
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+
+
+    </section>
+
+{% endblock %}

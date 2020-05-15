@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(5, 9, 48, 0.7);
+}
+a {
+text-decoration: none;
+}
+.logo {
+    height: 280px;
+}
+.div_image {
+    margin : 250px auto 0 auto;
+    text-align: center;
+}
+.div_image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.pre_co, .logo, .div_name_blog, lien_not_yet_compte, .form_co {
+    width: 70%;
+    margin: auto;
+}
+.connexion_cache, .more_info, .connexion, .lien_miss_password, .form_co input {
+    width: 27.5%;
+    height: 33px;
+    margin: 18px auto;
+    border: 1px solid rgba(55, 177, 210, 1);
+    border-radius: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.connexion_cache, .connexion, .connexion input {
+    background: linear-gradient(to right, rgba(55, 177, 210, 0.7), rgba(49, 171, 210, 0.6), rgba(0, 99, 244, 0.5));
+    border: 1px solid rgba(55, 177, 210, 0);
+}
+.affiche p, .affiche a, .lien_miss_password a, .connexion input {
+    padding : 0;
+    margin: 0;
+    font-size: 17px;
+}
+.affiche p, .connexion input {
+    color: white;
+}
+.affiche a, .lien_miss_password a {
+    color : silver;
+}
+.div_name_blog p{
+    color : white;
+    font-size : 20px;
+    margin-top : 250px;
+}
+.lien_not_yet_compte, .div_name_blog p {
+    text-align: center;
+}
+.lien_not_yet_compte {
+    margin-top : 35px;
+}
+.lien_not_yet_compte a {
+    color: rgba(55, 177, 210, 1)
+}
+
+.connexion input {
+    width: 100%;
+}
+input::placeholder{
+    text-align: center;
+}
+
+/*If error form */
+.form_error {
+    border: 2px solid red;
+    background: linear-gradient(to right, rgb(203, 95, 95), rgb(198, 41, 41), rgb(137, 2, 2));
+}
+
+.form_error li{
+    list-style-type: none;
+}
+
+/*Modification with JS*/
+.hide {
+    display: none;
+}

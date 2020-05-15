@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/backend/modifArticle.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <header>
+        <a href="{{ path("security_logOut") }}">Deconnexion</a>
+    </header>
+    <section class="all_articles">
+        <div class="bouton_creation_article">
+            <a href="{{ path("admin-creation-article") }}">Creation d'un article</a>
+        </div>
+
+
+        {% for article in articles %}
+
+        <div class="contener_article_modif">
+            <div class="name_article">
+                {{article.title}}
+            </div>
+            <div class="left_contener introduction_article_modif">
+                {{article.introduction}}
+            </div>
+            <div class="right_contener">
+                <div class="contener_button_modif_article contener_button">
+                    <a href="{{ path("admin-modification-article-selected", {id: article.id}) }}">Modifier</a>
+                </div>
+                <div class="contener_button_delete_article contener_button">
+                    <a href="{{ path("admin-delete-article-selected", {id: article.id}) }}">Delete</a>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+
+{% endblock %}

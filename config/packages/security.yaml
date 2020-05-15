@@ -1,0 +1,42 @@
+security:
+    encoders:
+        App\Application\Entity\User:
+            algorithm: auto
+    providers:
+        users:
+            entity:
+                class: App\Application\Entity\User
+                property: pseudo
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        admin:
+            anonymous: lazy
+            provider: users
+            pattern: ^/admin
+            logout:
+                path: security_logOut
+            guard:
+                authenticators:
+                    - App\Application\Security\Guard\Admin\WebAuthenticator
+        main:
+            anonymous: lazy
+            provider: users
+            logout:
+                path: security_logOut
+            guard:
+                authenticators:
+                    - App\Application\Security\Guard\WebAuthenticator
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        # - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }

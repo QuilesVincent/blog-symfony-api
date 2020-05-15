@@ -1,0 +1,15 @@
+programme_presentation:
+  path: /programme/presentation
+  controller: App\Domain\Programme\Controller\AccueilPresentation
+
+programme_connexion:
+  path: /programme/connexion
+  controller: App\Domain\Programme\Controller\ConnexionProgramme
+
+programme_inscription:
+  path: /programme/inscription
+  controller: App\Domain\Programme\Controller\InscriptionProgramme
+
+programme_first_page:
+  path: /programme/first-page
+  controller: App\Domain\Programme\Controller\FirstPage

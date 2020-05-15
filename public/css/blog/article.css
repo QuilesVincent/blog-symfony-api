@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    padding : 0;
+}
+
+.header_lien_programme {
+    background-color: darkorchid;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header_lien_programme a {
+    text-decoration: none;
+    margin-left: 20px;
+}
+.header_lien_programme * {
+    color: white;
+    font-size: 19px;
+}
+
+.principalPage {
+    width: 100%;
+    background-color : bisque;
+    display: flex;
+}
+
+.contentArticle {
+    width: 64%;
+    margin-bottom: 75px;
+}
+.contentImage {
+    width: 100%;
+}
+.contentImageHightSize {
+    height: 480px;
+}
+.contentImageMediumSize {
+    height: 300px;
+}
+.contentImageLowSize {
+    height: 200px;
+}
+
+.contentImage img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+}
+h1 {
+    font-size : 40px;
+}
+p, li {
+    font-size : 23px;
+}
+p {
+    line-height: 1.4em;
+}
+h2 {
+    margin: 70px 0 30px 0;
+    font-size : 27px;
+}
+
+.contentFree {
+    width: 18%;
+}
+.contentPub {
+    width: 18%;
+}
+
+.contentAboNews {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+    background-color: #57b9e3;
+}
+
+.leftContent, .rightContent {
+    width: 44%;
+    height: 100%;
+}
+.leftContent div, .rightContent div {
+    width: 85%;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.sousContentAboNews * {
+    color: white;
+}
+
+.sousContentAboNews h3 {
+    font-size : 30px;
+}
+.sousContentAboNews p, .sousContentAboNews a, .formNewsletter .submit {
+    font-size: 19px;
+}
+
+.leftContent a {
+    text-decoration: none;
+    padding: 10px;
+
+}
+
+.leftContent a, .formNewsletter .submit {
+    border: 3px solid white;
+    font-weight: bold;
+}
+
+.formNewsletter {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 0;
+    padding: 0;
+}
+.formNewsletter input {
+    padding: 15px;
+    margin-top: 0;
+}
+.formNewsletter input[name="emailNewsletter"] {
+    font-size: 25px;
+    color: black;
+    width: 55%;
+}
+.formNewsletter .submit {
+    background-color: #57b9e3;
+    width: 25%;
+}
+
+.commentaires {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.formComment {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.divAllComments {
+    display: flex;
+    flex-direction: column;
+}
+
+.divComment {
+    display : flex;
+    border : 1px solid black;
+    margin-left: 5%;
+    width: 70%;
+}
+
+.nameAuthorComment {
+    margin-left: 5%;
+}
+.contentComment {
+    margin-left : 10px;
+}
+
+
+
