@@ -3,11 +3,12 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    background-color: rgba(241, 221, 221, 0.87);
 }
 
 h2 {
     font-weight: bold;
-    font-size : 39px;
+    font-size : 35px;
 }
 .presentation {
     height: 500px;
@@ -20,12 +21,18 @@ h2 {
     height: 70%;
     padding: 0;
 }
-.paraph_text_presentation p {
-    font-size: 25px;
-}
 .titre_text_presentation {
     height: 40%;
 }
+.paraph_text_presentation {
+    margin-top: 35px;
+}
+.paraph_text_presentation p {
+    font-size: 23px;
+    padding: 0;
+    margin: 0;
+}
+
 .button_lien_commencer_presentation {
     border: 1px solid yellow;
     border-radius: 75px;
@@ -42,36 +49,54 @@ h2 {
     height: 100%;
 }
 .section_articles {
-    width: 75%;
-    margin: 3% auto;
+    width: 85%;
+    margin: 2% auto;
     display : flex;
     flex-wrap : wrap;
     justify-content: space-evenly;
 }
 .contener_article {
-    border : 6px solid rgba(222, 222, 222, 0.1);
-    box-shadow:  3px -1px 2px 3px rgba(245, 245, 245, 0.4);
     width: 28%;
     height: 480px;
-    margin : 3% 0;
-    background-color: rgba(244, 244, 244, 1);
+    margin : 1% 0;
+    padding: 0;
+    background-color: rgba(244, 244, 244, 0.7);
 }
 .img_article {
-    margin : 27% 0 15% 0;
     height: 42%;
     width: 100%;
+    min-width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .img_article img {
     height: 100%;
     width: 100%;
 }
-
-.introduction_article, .div_button {
-    margin : auto;
+.title_article, .introduction_article, .title_article, .div_button {
+    padding: O;
+    margin: 0 0 0 10%;
     width: 70%;
+
+}
+.title_article {
+    height: 7%;
 }
 .introduction_article {
+    height: 30%;
+}
+.div_button {
+    height: 10%;
+}
+
+.contener_article h3 {
+    font-size: 22px;
+}
+.div_button a {
+    text-decoration: none;
+    font-size: 19px;
+    color: limegreen;
 }
 
 .div_info_footer {
@@ -111,4 +136,11 @@ h2 {
 }
 .contener_social_reseau > * {
     margin-left : 2%;
+}
+
+@media all and (min-width: 1780px)
+{
+    .contener_article {
+        height: 610px;
+    }
 }

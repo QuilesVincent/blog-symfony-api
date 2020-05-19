@@ -47,6 +47,7 @@ class ArticleSubscriber implements EventSubscriberInterface
         if(!$event->getOriginalData() instanceof Article) {
             return;
         }
+
         $event->getData()->setContent($event->getOriginalData()->getContent());
         $event->getData()->setTitle($event->getOriginalData()->getTitle());
         $event->getData()->setTitlePicture($event->getOriginalData()->getTitlePicture());

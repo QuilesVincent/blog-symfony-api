@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/programme/connexion.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <section class="page_connexion">
+        <div class="logo">
+            <div class="div_image">
+                <img src="{{ asset("image/logo/vincent.png") }}" alt="logo">
+            </div>
+        </div>
+        {% if form_errors(form) %}
+        <div class="form_error">
+            {{ form_errors(form) }}
+            {% endif %}
+        </div>
+        {{ form_start(form, {"attr" : {"class": "form_co hide"}}) }}
+        {{ form_row(form.username) }}
+        {{ form_row(form.password) }}
+        <div class="connexion">
+            <input type="submit" value="se connecter">
+        </div>
+        {{ form_end(form) }}
+
+
+        <div class="affiche pre_co">
+            <div class="connexion_cache">
+                <p class="lien_co">Connexion</p>
+            </div>
+
+            <div class="div_name_blog">
+                <p>Succes to you</p>
+            </div>
+        </div>
+
+
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset("javascript/programme/connexion.js") }}"></script>
+{% endblock %}

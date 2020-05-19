@@ -1,3 +1,11 @@
+api-connexion:
+  path: /api-connexion
+  controller: App\Domain\Api\Controller\ConnexionApi
+
+create-token:
+  path: /api/create-token
+  controller: App\Domain\Api\Controller\CreateToken
+
 api-articles:
   path: /api/article-{id}
   controller: App\Domain\Api\Controller\ReadArticleApi
@@ -10,4 +18,4 @@ api-listing-articles:
 
 api-create-article:
   path: /api/create-article
-  controller: App\Domain\Api\Controller\CreateArticleApi
+  controller: App\Domain\Api\Controller\CreateArticleApi  

@@ -1,103 +1,77 @@
 <?php
 
-namespace App\Application\Entity;
 
-use App\Application\Security\Guard\Api\TokenAuthenticator;
+namespace App\Domain\Api\DataTransfertObject;
+
+use App\Application\Validator\UniquePseudo;
+use App\Application\Validator\UniqueEmail;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
- * @ORM\Entity(repositoryClass="App\Application\Repository\UserRepository")
+ * Class User
+ * @package App\Domain\Api\DataTransfertObject
  */
-class User implements UserInterface
+class User
 {
-
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private int $id;
-
     /**
      * @var string|null
-     * @ORM\Column
+     * @Assert\NotBlank
+     * @Assert\Length(min=4)
      */
     private ?string $lastName = null;
 
     /**
      * @var string|null
-     * @ORM\Column
+     * @Assert\NotBlank
+     * @Assert\Length(min=4)
      */
     private ?string $firstName = null;
 
     /**
      * @var string|null
-     * @ORM\Column
      */
     private ?string $type_compte = null;
 
     /**
      * @var string|null
-     * @ORM\Column
+     * @Assert\NotBlank
+     * @Assert\Length(min=4)
      */
     private ?string $password= null;
 
     /**
      * @var string|null
-     * @ORM\Column
+     * @Assert\NotBlank
+     * @Assert\Length(min=4)
+     * @UniquePseudo
      */
     private ?string $pseudo = null;
 
     /**
      * @var string|null
-     * @ORM\Column
      */
     private ?string $secretQuestion = null;
 
     /**
      * @var string|null
-     * @ORM\Column
+     * @Assert\NotBlank
      */
     private ?string $secretQuestionAnswer = null;
 
     /**
      * @var Collection
-     * @ORM\OneToMany(targetEntity="TokenApi", mappedBy="user")
      */
-    private ?Collection $apiKey = null;
-
-
-    /**
-     * @var Collection
-     */
-    private Collection $comments;
-
+    private Collection $apiKey;
 
     public function __construct()
     {
-        $this->comments = new ArrayCollection();
         $this->apiKey = new ArrayCollection();
     }
 
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
 
     /**
      * @return string|null
@@ -110,7 +84,7 @@ class User implements UserInterface
     /**
      * @param string $lastName
      */
-    public function setLastName(string $lastName): void
+    public function setLastName(?string $lastName): void
     {
         $this->lastName = $lastName;
     }
@@ -126,7 +100,7 @@ class User implements UserInterface
     /**
      * @param string $firstName
      */
-    public function setFirstName(string $firstName): void
+    public function setFirstName(?string $firstName): void
     {
         $this->firstName = $firstName;
     }
@@ -161,7 +135,7 @@ class User implements UserInterface
     /**
      * @param string $password
      */
-    public function setPassword(string $password): void
+    public function setPassword(?string $password): void
     {
         $this->password = $password;
     }
@@ -177,7 +151,7 @@ class User implements UserInterface
     /**
      * @param string $secretQuestion
      */
-    public function setSecretQuestion(string $secretQuestion): void
+    public function setSecretQuestion(?string $secretQuestion): void
     {
         $this->secretQuestion = $secretQuestion;
     }
@@ -193,7 +167,7 @@ class User implements UserInterface
     /**
      * @param string $secretQuestionAnswer
      */
-    public function setSecretQuestionAnswer(string $secretQuestionAnswer): void
+    public function setSecretQuestionAnswer(?string $secretQuestionAnswer): void
     {
         $this->secretQuestionAnswer = $secretQuestionAnswer;
     }
@@ -228,23 +202,9 @@ class User implements UserInterface
     /**
      * @param string $username
      */
-    public function setUsername(string $username): void
+    public function setUsername(?string $username): void
     {
         $this->pseudo = $username;
     }
 
-    /**
-     *
-     */
-    public function eraseCredentials()
-    {
-    }
-
-    /**
-     * @return Collection|null
-     */
-    public function getApiKey(): Collection
-    {
-        return $this->apiKey;
-    }
 }
